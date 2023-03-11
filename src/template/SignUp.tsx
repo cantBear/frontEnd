@@ -39,7 +39,7 @@ export default function SignUp() {
     formData.append("password", password);
     formData.append("nickName", nickName);
     try {
-      const response = tokenAxios.post("/users/registers", formData);
+      await tokenAxios.post("/users/registers", formData);
     } catch (error) {
       console.log(error);
     }
