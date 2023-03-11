@@ -3,7 +3,6 @@ import styled from "styled-components";
 import Input from "../atom/Input";
 import FolderRuleBox from "../molecule/FolderRuleBox";
 import KeywordInput from "../molecule/KeywordInput";
-import MailCompanySelect from "../molecule/MailCompanySelect";
 import {
   ButtonStyle,
   Gap,
