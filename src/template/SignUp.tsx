@@ -1,31 +1,35 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Input from "../atom/Input";
-import { BorderBox, ButtonStyle, InputContainerStyle } from "../style";
+import { ButtonStyle, InputContainerStyle } from "../style";
 import { tokenAxios } from "../utility";
 
-const SignUpBoxStyle = styled(BorderBox)`
-  flex-direction: column;
+const SignUpBoxStyle = styled.div`
   width: 65vw;
-  margin: 10% auto;
+  margin: 0 auto;
   min-height: 50vh;
+  height: 500px;
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   .top {
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    border-bottom: solid 1px;
-    padding: 5% 10%;
+    width: 50%;
     justify-content: space-between;
+    align-items: center;
+    height: max-content;
+
     .input {
-      align-items: center;
-      margin-bottom: 20px;
       display: flex;
+      height: 60px;
+      align-items: center;
       justify-content: space-between;
-      /* width: 80%; */
+      width: 400px;
+      .tag {
+        height: max-content;
+      }
     }
-  }
-  .bottom {
-    padding: 40px;
   }
 `;
 export default function SignUp() {
@@ -74,11 +78,14 @@ export default function SignUp() {
           </InputContainerStyle>
         </div>
       </div>
-      <div className="bottom">
-        <ButtonStyle width="300px" height="60px" onClick={sendsignUp}>
-          회원가입하기
-        </ButtonStyle>
-      </div>
+      <ButtonStyle
+        width="300px"
+        height="60px"
+        onClick={sendsignUp}
+        backgroundColor="#F2A5A5"
+      >
+        회원가입하기
+      </ButtonStyle>
     </SignUpBoxStyle>
   );
 }

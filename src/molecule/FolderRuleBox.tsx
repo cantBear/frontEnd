@@ -45,13 +45,11 @@ export default function FolderRuleBox({
   name,
   sender,
   keyword,
-  email_domain,
   onClick,
 }: {
   name: string;
   sender: string[];
   keyword: string[];
-  email_domain: string[];
   onClick?: any;
 }) {
   return (
@@ -71,9 +69,6 @@ export default function FolderRuleBox({
           </div>
           <div className="folderRow">
             {keyword?.map((keyword) => `"${keyword}", `)}
-          </div>
-          <div className="folderRow">
-            {email_domain.map((email_domain) => `"${email_domain}", `)}
           </div>
         </div>
       </div>

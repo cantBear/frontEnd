@@ -113,7 +113,7 @@ export default function KeywordInput({
         setState([...arrayState, e.target.value]);
         e.target.value = "";
       }
-    }, 600);
+    }, 1000);
   };
   const deleteOneState = (i: number) => {
     const delFunc = () => {

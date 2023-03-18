@@ -75,8 +75,7 @@ export default function Home() {
     user?: number;
     folder_name: string;
     sender: Array<string>;
-    keyWorList: Array<string>;
-    email_domain: Array<string>;
+    keyWordList: Array<string>;
   }
   interface emailObj {
     id: number;
@@ -89,8 +88,7 @@ export default function Home() {
     id: 0,
     folder_name: "all",
     sender: ["all"],
-    keyWorList: ["none"],
-    email_domain: ["none"],
+    keyWordList: ["none"],
   });
   const [folderList, setfolderList] = useState<Array<folderObj>>([]);
   const [emailList, setemailList] = useState<Array<emailObj>>([]);
@@ -137,8 +135,7 @@ export default function Home() {
         id: 0,
         folder_name: "all",
         sender: ["all"],
-        keyWorList: ["none"],
-        email_domain: ["none"],
+        keyWordList: ["none"],
       }
     );
   };
@@ -182,20 +179,14 @@ export default function Home() {
                   {currentFolder.sender.map((sender) => `"${sender}", `)}
                 </div>
                 <div className="folderRow">
-                  {currentFolder.keyWorList.map(
-                    (keyWorList) => `"${keyWorList}", `
-                  )}
-                </div>
-                <div className="folderRow">
-                  {currentFolder.email_domain.map(
-                    (email_domain) => `"${email_domain}", `
+                  {currentFolder.keyWordList.map(
+                    (keyWordList) => `"${keyWordList}", `
                   )}
                 </div>
               </div>
               <div className="right">
                 <div className="textRow">님이 보내신</div>
                 <div className="textRow">키워드가 포함된</div>
-                <div className="textRow">계정에서 받은 메일</div>
               </div>
             </div>
             <div

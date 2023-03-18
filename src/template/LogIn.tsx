@@ -2,41 +2,27 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
 import Input from "../atom/Input";
-import { BorderBox, ButtonStyle, InputContainerStyle } from "../style";
+import { ButtonStyle, InputContainerStyle } from "../style";
 import { tokenAxios } from "../utility";
 
-const LogInBoxStyle = styled(BorderBox)`
-  flex-direction: column;
+const LogInBoxStyle = styled.div`
   width: 65vw;
-  margin: 10% auto;
+  margin: 0 auto;
   min-height: 50vh;
+  height: 500px;
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   .top {
-    width: 70%;
+    width: 50%;
     display: flex;
-    border-bottom: solid 1px;
-    padding: 5% 10%;
     justify-content: space-between;
-    .input {
-      align-items: center;
-      margin-bottom: 20px;
-      display: flex;
-      justify-content: space-between;
-      width: 280px;
-    }
-    .loginButton {
-      margin-left: 24px;
-      width: 180px;
-      height: 100px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #f2a5a5;
-      font-size: 14px;
-      border: solid 1px;
-    }
+    align-items: center;
   }
-  .bottom {
-    padding: 40px;
+  .inputList {
+    height: max-content;
   }
 `;
 
@@ -62,36 +48,34 @@ export default function LogIn() {
     <LogInBoxStyle>
       <div className="top">
         <div className="inputList">
-          <div className="input">
-            <div className="tag">이메일</div>
-            <InputContainerStyle width="200px" height="40px">
-              <Input placeholder="Email" state={email} setState={setemail} />
-            </InputContainerStyle>
-          </div>
-          <div className="input">
-            <div className="tag">패스워드</div>
-            <InputContainerStyle width="200px" height="40px">
-              <Input
-                placeholder="password"
-                state={password}
-                setState={setpassword}
-              />
-            </InputContainerStyle>
-          </div>
+          <InputContainerStyle width="300px" height="40px">
+            <Input placeholder="Email" state={email} setState={setemail} />
+          </InputContainerStyle>
+
+          <InputContainerStyle width="300px" height="40px">
+            <Input
+              placeholder="password"
+              state={password}
+              setState={setpassword}
+            />
+          </InputContainerStyle>
         </div>
-        <div className="loginButton" onClick={sendLogin}>
-          로그인
-        </div>
-      </div>
-      <div className="bottom">
         <ButtonStyle
-          width="300px"
-          height="60px"
-          onClick={() => navigate("signup")}
+          width="150px"
+          height="80px"
+          onClick={sendLogin}
+          backgroundColor="#F2A5A5"
         >
-          회원가입하러가기
+          로그인
         </ButtonStyle>
       </div>
+      <ButtonStyle
+        width="300px"
+        height="40px"
+        onClick={() => navigate("signup")}
+      >
+        회원가입하러가기
+      </ButtonStyle>
     </LogInBoxStyle>
   );
 }

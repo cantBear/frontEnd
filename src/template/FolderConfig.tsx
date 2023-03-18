@@ -47,13 +47,11 @@ export default function EmailConfig() {
     folder_name: string;
     sender: Array<string>;
     keyWordList: Array<string>;
-    email_domain: Array<string>;
   }
   const [folderList, setfolderList] = useState<Array<folderObj>>([]);
   const [folder_name, setfolder_name] = useState<string>("");
   const [sender, setsender] = useState<Array<string>>([]);
   const [keyword, setkeyword] = useState<Array<string>>([]);
-  const [email_domain, setemail_domain] = useState<string[]>([]);
   const [isEdit, setisEdit] = useState(false);
 
   const [postFlag, setpostFlag] = useState(true);
@@ -64,7 +62,6 @@ export default function EmailConfig() {
     formData.append("folder_name", folder_name);
     formData.append("sender", `${sender}`);
     formData.append("keyword", `${keyword}`);
-    formData.append("email_domain", `${email_domain}`);
 
     await tokenAxios.post("myfolders/", formData);
     alert("폴더 추가에 성공했습니다!");
@@ -79,12 +76,10 @@ export default function EmailConfig() {
       name={folderObj.folder_name}
       keyword={folderObj.keyWordList || ["any"]}
       sender={folderObj.sender || ["any"]}
-      email_domain={folderObj.email_domain || ["any"]}
       onClick={() => {
         setfolder_name(folderObj.folder_name);
         setsender(folderObj.sender);
         setkeyword(folderObj.keyWordList);
-        setemail_domain(folderObj.email_domain);
         setisEdit(true);
       }}
     />
