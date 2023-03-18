@@ -1,8 +1,9 @@
+import axios from "axios";
 import React, { useState } from "react";
 import styled from "styled-components";
 import Input from "../atom/Input";
 import { ButtonStyle, InputContainerStyle } from "../style";
-import { tokenAxios } from "../utility";
+// import { tokenAxios } from "../utility";
 
 const SignUpBoxStyle = styled.div`
   width: 65vw;
@@ -43,7 +44,7 @@ export default function SignUp() {
     formData.append("password", password);
     formData.append("nickName", nickName);
     try {
-      await tokenAxios.post("/users/registers", formData);
+      await axios.post("/users/registers", formData);
     } catch (error) {
       console.log(error);
     }

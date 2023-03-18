@@ -1,9 +1,10 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
 import Input from "../atom/Input";
 import { ButtonStyle, InputContainerStyle } from "../style";
-import { tokenAxios } from "../utility";
+// import { tokenAxios } from "../utility";
 
 const LogInBoxStyle = styled.div`
   width: 65vw;
@@ -36,7 +37,7 @@ export default function LogIn() {
     formData.append("email", email);
     formData.append("password", password);
     try {
-      const response = await tokenAxios.post("/users/logins", formData);
+      const response = await axios.post("/users/logins", formData);
       window.localStorage.setItem("loginToken", response.data.token);
       window.location.reload();
     } catch (error) {
