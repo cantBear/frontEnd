@@ -37,7 +37,14 @@ export default function LogIn() {
     formData.append("email", email);
     formData.append("password", password);
     try {
-      const response = await axios.post("/users/logins", formData);
+      const response = await axios.post("/users/logins", formData, {
+        baseURL: "https://motchamjing4.herokuapp.com/",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "multipart/form-data",
+          Authorization: `Token ${window.localStorage.getItem("loginToken")}`,
+        },
+      });
       window.localStorage.setItem("loginToken", response.data.token);
       window.location.reload();
     } catch (error) {

@@ -44,7 +44,14 @@ export default function SignUp() {
     formData.append("password", password);
     formData.append("nickName", nickName);
     try {
-      await axios.post("/users/registers", formData);
+      await axios.post("/users/registers", formData, {
+        baseURL: "https://motchamjing4.herokuapp.com/",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "multipart/form-data",
+          Authorization: `Token ${window.localStorage.getItem("loginToken")}`,
+        },
+      });
     } catch (error) {
       console.log(error);
     }
