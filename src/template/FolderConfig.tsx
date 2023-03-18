@@ -63,7 +63,7 @@ export default function EmailConfig() {
     formData.append("sender", `${sender}`);
     formData.append("keyword", `${keyword}`);
 
-    await tokenAxios.post("myfolders/", formData);
+    await tokenAxios.post("myfolders", formData);
     alert("폴더 추가에 성공했습니다!");
     setpostFlag((flag) => !flag);
   };
@@ -86,7 +86,7 @@ export default function EmailConfig() {
   ));
   //  BUSINESSMODEL
   const getFolderList = async () => {
-    const response = await tokenAxios.get("myfolders/");
+    const response = await tokenAxios.get("myfolders");
     setfolderList(response.data);
   };
   useEffect(() => {

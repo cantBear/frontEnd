@@ -55,7 +55,7 @@ export default function EmailConfig() {
     if (appKey) {
       formData.append("g_Key", appKey);
     }
-    await tokenAxios.post("emailauths/", formData);
+    await tokenAxios.post("emailauths", formData);
     alert("메일 인증에 성공했습니다!");
     setpostFlag((flag) => !flag);
   };
@@ -65,7 +65,7 @@ export default function EmailConfig() {
   ));
   //  BUSINESSMODEL
   const getAccountList = async () => {
-    const response = await tokenAxios.get("emailauths/");
+    const response = await tokenAxios.get("emailauths");
     setmailAccountList(response.data);
   };
   const initInput = () => {

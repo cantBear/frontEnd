@@ -119,7 +119,7 @@ export default function Home() {
 
   //  send request on currentFolderChange
   const getEmailList = async (id?: number) => {
-    const response = await tokenAxios.get(`imaplists/${id ? id + "/" : ""}`);
+    const response = await tokenAxios.get(`imaplists${id ? "/" + id : ""}`);
     setemailList(response.data || []);
   };
   useEffect(() => {
@@ -128,7 +128,7 @@ export default function Home() {
 
   //  getFolderList and set folderlist, currentFolder
   const getFolderList = async () => {
-    const response = await tokenAxios.get("myfolders/");
+    const response = await tokenAxios.get("myfolders");
     setfolderList(response.data);
     setcurrentFolder(
       folderList[0] || {
