@@ -42,7 +42,6 @@ export default function LogIn() {
         headers: {
           Accept: "application/json",
           "Content-Type": "multipart/form-data",
-          Authorization: `Token ${window.localStorage.getItem("loginToken")}`,
         },
       });
       window.localStorage.setItem("loginToken", response.data.token);

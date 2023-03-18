@@ -49,7 +49,6 @@ export default function SignUp() {
         headers: {
           Accept: "application/json",
           "Content-Type": "multipart/form-data",
-          Authorization: `Token ${window.localStorage.getItem("loginToken")}`,
         },
       });
     } catch (error) {
