@@ -11,6 +11,7 @@ const MinifolderStyle = styled.div<{ isActive: Boolean }>`
   color: #547856;
   font-weight: 600;
   border: solid 1px #d8d8d8;
+  cursor: pointer;
 `;
 export default function MiniFolder({
   name,
@@ -21,5 +22,9 @@ export default function MiniFolder({
   onClick: any;
   isActive: boolean;
 }) {
-  return <MinifolderStyle isActive={isActive}>{name}</MinifolderStyle>;
+  return (
+    <MinifolderStyle isActive={isActive} onClick={onClick}>
+      {name}
+    </MinifolderStyle>
+  );
 }

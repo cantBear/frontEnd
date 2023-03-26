@@ -75,7 +75,7 @@ export default function Home() {
     user?: number;
     folder_name: string;
     sender: Array<string>;
-    keyWordList: Array<string>;
+    keyword: Array<string>;
   }
   interface emailObj {
     id: number;
@@ -88,13 +88,13 @@ export default function Home() {
     id: 0,
     folder_name: "all",
     sender: ["all"],
-    keyWordList: ["none"],
+    keyword: ["none"],
   });
   const [folderList, setfolderList] = useState<Array<folderObj>>([]);
   const [emailList, setemailList] = useState<Array<emailObj>>([]);
 
   //  ACTION
-
+  console.log(folderList, currentFolder);
   //  VIEW
   const folderUIList = folderList.map((folderObj, i) => (
     <MiniFolder
@@ -124,6 +124,7 @@ export default function Home() {
   };
   useEffect(() => {
     getEmailList(currentFolder.id);
+    console.log(currentFolder.id);
   }, [currentFolder]);
 
   //  getFolderList and set folderlist, currentFolder
@@ -135,7 +136,7 @@ export default function Home() {
         id: 0,
         folder_name: "all",
         sender: ["all"],
-        keyWordList: ["none"],
+        keyword: ["none"],
       }
     );
   };
@@ -179,9 +180,7 @@ export default function Home() {
                   {currentFolder.sender.map((sender) => `"${sender}", `)}
                 </div>
                 <div className="folderRow">
-                  {currentFolder.keyWordList.map(
-                    (keyWordList) => `"${keyWordList}", `
-                  )}
+                  {currentFolder.keyword.map((keyword) => `"${keyword}", `)}
                 </div>
               </div>
               <div className="right">

@@ -46,7 +46,7 @@ export default function EmailConfig() {
     user?: number;
     folder_name: string;
     sender: Array<string>;
-    keyWordList: Array<string>;
+    keyword: Array<string>;
   }
   const [folderList, setfolderList] = useState<Array<folderObj>>([]);
   const [folder_name, setfolder_name] = useState<string>("");
@@ -74,12 +74,12 @@ export default function EmailConfig() {
     <FolderRuleBox
       key={i}
       name={folderObj.folder_name}
-      keyword={folderObj.keyWordList || ["any"]}
+      keyword={folderObj.keyword || ["any"]}
       sender={folderObj.sender || ["any"]}
       onClick={() => {
         setfolder_name(folderObj.folder_name);
         setsender(folderObj.sender);
-        setkeyword(folderObj.keyWordList);
+        setkeyword(folderObj.keyword);
         setisEdit(true);
       }}
     />
